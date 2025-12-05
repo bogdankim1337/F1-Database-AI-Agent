@@ -69,19 +69,8 @@ SELECT
 FROM results res
 JOIN races r ON res.raceId = r.raceId
 JOIN drivers d ON res.driverId = d.driverId;
-
--- (Раскомментировать, если используется таблица pit_stops)
-/*
-CREATE OR REPLACE VIEW vw_pitstop_analysis AS
-SELECT 
-    r.year,
-    r.name AS race_name,
-    d.surname AS driver_surname,
-    res.positionOrder AS final_position,
-    ps.stop AS stop_number,
-    ps.milliseconds / 1000 AS duration_seconds
-FROM pit_stops ps
 JOIN results res ON ps.raceId = res.raceId AND ps.driverId = res.driverId
 JOIN races r ON ps.raceId = r.raceId
 JOIN drivers d ON ps.driverId = d.driverId;
+
 */
